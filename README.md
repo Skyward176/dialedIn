@@ -4,11 +4,15 @@ I want this to be sorted by brand/roaster, and the specific coffee/roast. Each b
 will be grouped together when viewing. Eventually I'd even like to develop an algorithm for suggesting grind/dose adjustments based on certain flavor inputs,
 but I'll cross that bridge when I get there.
 
-Current Status:
-Added User Registration functionality
+**Current Status:**
+
+
+Working on everything related to user login and the User model.
+
+
 
 Current ToDo:
-Find or create a better bootstrap theme for this 
-Add login page
-Add admin page
-Create Extraction and Coffee models
+- Find or create a better bootstrap theme for this 
+- Add login page
+- Add admin page
+- Create Extraction and Coffee models
