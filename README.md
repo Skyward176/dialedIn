@@ -11,7 +11,7 @@ Working on everything related to user login and the User model.
 
 
 
-Current ToDo:
+**Current ToDo:**
 - Find or create a better bootstrap theme for this 
 - Add login page
 - Add admin page
