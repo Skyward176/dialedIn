@@ -12,8 +12,7 @@ class UserRegisterForm(UserCreationForm):
         self.helper.form_id = 'registrationFrom'
         self.helper.form_class = 'blueForms'
         self.helper.form_method = 'post'
-        self.helper.form_action = 'submit_survey'
-
+        self.helper.form_action = 'register'
         self.helper.add_input(Submit('submit', 'Submit'))
     class Meta:
         model = User
