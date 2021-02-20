@@ -13,6 +13,5 @@ Working on everything related to user login and the User model.
 
 **Current ToDo:**
 - Find or create a better bootstrap theme for this 
-- Add login page
 - Add admin page
 - Create Extraction and Coffee models
