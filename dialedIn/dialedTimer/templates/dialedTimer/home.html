@@ -1,16 +1,13 @@
 {% extends "users/base.html" %}
 {% block content %}
-{% load crispy_forms_tags %}
 <div class= "card" style="width:25rem">
   <div class="card-body">
-    <h1 class="card-title">Add New Coffee</h1>
-    <form method="POST">
-      <div class="mb-2">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class= "btn btn-primary"> Add Coffee </button>
-      </div>
-    </form>
+    <h1 class="home">Welcome to dialedIn!</h1>
+    <ul>
+      <li><a href="{% url 'coffeeForm' %}"> Add a new coffee </a></li>
+      <li><a href="{% url 'extractionForm' %}"> Record a brew </a></li>
+    </ul>
   </div>
 </div>
 {% endblock content %}
+
