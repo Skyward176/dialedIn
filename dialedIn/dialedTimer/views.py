@@ -2,12 +2,15 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from . import forms as timer_forms
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def home(request):
     return render(request, 'dialedTimer/home.html')
 
 
+@login_required
 def coffeeForm(request):
     if request.method == 'POST':
         form = timer_forms.CoffeeCreationForm(request.POST)
@@ -22,6 +25,7 @@ def coffeeForm(request):
     return render(request, 'dialedTimer/coffeeForm.html', {'form': form})
 
 
+@login_required
 def extractionForm(request):
     if request.method == 'POST':
         form = timer_forms.ExtractionForm(request.POST)
