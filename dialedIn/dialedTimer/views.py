@@ -30,7 +30,9 @@ def extractionForm(request):
     if request.method == 'POST':
         form = timer_forms.ExtractionForm(request.POST)
         if form.is_valid():
-            form.save()#the save method of usercreation form automagically saves our user accounts
+            obj = form.save(commit = False)
+            obj.user_id = request.user
+            obj.save()#the save method of usercreation form automagically saves our user accounts
             messages.success(request, 'Your extraction was added!')
 
             return redirect('home')

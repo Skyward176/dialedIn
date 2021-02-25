@@ -1,4 +1,5 @@
 from django.forms import ModelForm
+from django import forms
 from .models import Coffee, Extraction
 
 
@@ -11,4 +12,4 @@ class CoffeeCreationForm(ModelForm):
 class ExtractionForm(ModelForm):
     class Meta:
         model = Extraction
-        fields = ['user_id', 'coffee_id', 'timestamp', 'extraction_length', 'mass_in', 'mass_out', 'notes']
+        fields = ['coffee_id', 'extraction_length', 'mass_in', 'mass_out', 'notes']
