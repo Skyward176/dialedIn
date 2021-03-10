@@ -1,3 +1,4 @@
 build:
   docker:
     web: Dockerfile
+run: web: gunicorn dialedIn.wsgi:application
