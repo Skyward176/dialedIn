@@ -44,7 +44,7 @@ def sendMail(request):
     send_mail(
         'Test_Email',
         'Test_Message',
-        'from_test@dialedIn.com',
+        'contact@brandonmartinez.dev',
         ['contact@brandonmartinez.dev'],
         fail_silently=False,
     )
