@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from . import forms as timer_forms
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 
 
 @login_required
@@ -39,3 +40,12 @@ def extractionForm(request):
     else:
         form = timer_forms.ExtractionForm()
     return render(request, 'dialedTimer/extractionForm.html', {'form': form})
+def sendMail(request):
+    send_mail(
+        'Test_Email',
+        'Test_Message',
+        'from_test@dialedIn.com',
+        ['contact@brandonmartinez.dev'],
+        fail_silently=False,
+    )
+    return HttpResponse('Mail view executed')

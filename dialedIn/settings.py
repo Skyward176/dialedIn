@@ -32,7 +32,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = 'ch!=zv=i4(!0ih*j!m5gvdfh$h$h_s_2y!qgn2l270&$yaaw_l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv("DEBUG_MODE")
 
 ALLOWED_HOSTS = ['*']
 
@@ -119,6 +119,15 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Email configuration
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
 
 # Static files (CSS, JavaScript, Images)
