@@ -32,7 +32,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = 'ch!=zv=i4(!0ih*j!m5gvdfh$h$h_s_2y!qgn2l270&$yaaw_l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG_MODE")
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -144,3 +144,8 @@ django_heroku.settings(locals())
 #fix ssl with local db
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
+
+try:
+    import local_settings
+except ImportError:
+    pass
