@@ -21,7 +21,6 @@ keyrings.alt==4.0.2
 msgpack==1.0.2
 neovim==0.3.1
 pip-upgrade-outdated==1.5
-pkg-resources==0.0.0
 psycopg2==2.8.6
 psycopg2-binary==2.8.6
 pycairo==1.20.0
