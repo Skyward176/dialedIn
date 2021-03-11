@@ -40,15 +40,16 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'crispy_forms',
-    'dialedTimer.apps.DialedtimerConfig',
-    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
+    'dialedTimer.apps.DialedtimerConfig',
+    'crispy_forms',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -140,6 +141,13 @@ LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = "login"
 
 django_heroku.settings(locals())
+
+
+# Cronjobs
+CRONJOBS = [
+    # every 5 minutes
+    ('*/1 * * * *', 'dialedTimer.cron.sendMail')
+]
 
 #fix ssl with local db
 options = DATABASES['default'].get('OPTIONS', {})
