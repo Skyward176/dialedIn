@@ -146,7 +146,7 @@ django_heroku.settings(locals())
 # Cronjobs
 CRONJOBS = [
     # every 5 minutes
-    ('*/1 * * * *', 'dialedTimer.cron.sendMail')
+    ('* * * * *', 'dialedTimer.cron.sendMail')
 ]
 
 #fix ssl with local db
