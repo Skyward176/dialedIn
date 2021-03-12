@@ -1,16 +1,22 @@
 FROM python:3
 
+
 WORKDIR /usr/src/app
+
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-RUN apt-get update
-RUN apt-get install cron -y
-RUN service cron start
 
+COPY requirements.txt ./
 COPY . .
 
-CMD gunicorn dialedIn.wsgi:application --bind 0.0.0.0:$PORT
+
+RUN apt-get update &&\
+    apt-get install cron -y &&\
+    pip install --no-cache-dir -r requirements.txt
+
+ADD entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT /entrypoint.sh

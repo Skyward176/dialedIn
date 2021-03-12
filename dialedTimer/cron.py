@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 def sendMail():
     send_mail(
         'Test_Email',
