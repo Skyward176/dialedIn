@@ -40,12 +40,3 @@ def extractionForm(request):
     else:
         form = timer_forms.ExtractionForm()
     return render(request, 'dialedTimer/extractionForm.html', {'form': form})
-def sendMail(request):
-    send_mail(
-        'Test_Email',
-        'Test_Message',
-        'contact@brandonmartinez.dev',
-        ['contact@brandonmartinez.dev'],
-        fail_silently=False,
-    )
-    return HttpResponse('Mail view executed')
