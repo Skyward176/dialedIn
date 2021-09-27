@@ -13,7 +13,6 @@ COPY . .
 
 
 RUN apt-get update &&\
-    apt-get install cron -y &&\
     pip install --no-cache-dir -r requirements.txt
 
 ADD entrypoint.sh /entrypoint.sh
