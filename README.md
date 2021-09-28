@@ -21,9 +21,15 @@ Working on everything related to user login and the User model.
 .env:
 - DEBUG_MODE value
 - DATABASE_URL value
+- SECRET_KEY value
 example
 > DEBUG_MODE=True
+
+
 > DATABASE_URL=sqlite:///db.sqlite3
+
+
+> SECRET_KEY='<randomly generated secret key>'
 
 local_settings.py:
 - currently not used
