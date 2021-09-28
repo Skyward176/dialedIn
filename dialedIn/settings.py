@@ -29,10 +29,10 @@ if os.path.isfile(dotenv_file):
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ch!=zv=i4(!0ih*j!m5gvdfh$h$h_s_2y!qgn2l270&$yaaw_l'
+SECRET_KEY = os.getenv('SECRET_KEY') # defined in dotenv
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DEBUG_MODE')# This is an environment variable set in dotenv file
 
 ALLOWED_HOSTS = ['*']
 
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'dialedTimer.apps.DialedtimerConfig',
     'crispy_forms',
-    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -122,14 +121,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Email configuration
-EMAIL_HOST = 'smtp.zoho.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -143,11 +134,6 @@ LOGIN_URL = "login"
 django_heroku.settings(locals())
 
 
-# Cronjobs
-CRONJOBS = [
-    # every 5 minutes
-    ('* * * * *', 'dialedTimer.cron.sendMail')
-]
 
 #fix ssl with local db
 options = DATABASES['default'].get('OPTIONS', {})
