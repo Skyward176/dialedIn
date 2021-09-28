@@ -1,0 +1,37 @@
+{% extends "users/base.html" %}
+{% block content %}
+<div class= "card" style="width:25rem">
+  <div class="card-body">
+    {% if extractions|length > 0 %}
+    <table>
+      <thead>
+        <tr>
+          <td> userID </td>
+          <td> coffeeID</td>
+          <td> timestamp </td>
+          <td> extraction length </td>
+          <td> mass in</td>
+          <td> mass out </td>
+          <td> notes </td>
+        </tr>
+      </thead>
+      <tbody>
+      {% for extraction in extractions %}
+        <tr>
+          <td> {{ extraction.user_id }}</td>
+          <td> {{ extraction.coffee_id }}</td>
+          <td> {{ extraction.timestamp }}</td>
+          <td> {{ extraction.timestamp }}</td>
+          <td> {{ extraction.timestamp }}</td>
+          <td> {{ extraction.timestamp }}</td>
+          <td> {{ extraction.timestamp }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+  <span>No data.</span>
+  {% endif %}
+  </div>
+</div>
+{% endblock content %}
