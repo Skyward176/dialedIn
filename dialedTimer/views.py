@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from . import forms as timer_forms
 from django.contrib.auth.decorators import login_required
-from dialedTimer.models import Extraction
+from dialedTimer.models import Extraction, Coffee
 
 
 @login_required
@@ -42,5 +42,6 @@ def extractionForm(request):
     return render(request, 'dialedTimer/extractionForm.html', {'form': form})
 @login_required
 def userExtractions(request):
+    allCoffees = Coffee.objects
     allUserExtractions = Extraction.objects.filter(user_id = request.user)
-    return render(request, 'dialedTimer/userExtractions.html', {'extractions': allUserExtractions })
+    return render(request, 'dialedTimer/userExtractions.html', {'extractions': allUserExtractions, 'coffees': allCoffees})
