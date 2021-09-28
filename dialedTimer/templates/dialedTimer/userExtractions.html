@@ -1,0 +1,33 @@
+{% extends "users/base.html" %}
+{% block content %}
+<div class= "card" style="width:75rem">
+  <div class="card-body">
+    {% if extractions|length > 0 %}
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"> Coffee </th>
+          <th scope = "col"> Date/Time </th>
+          <th scope="col"> Extraction Time</th>
+          <th scope="col"> Mass In (g)</th>
+          <th scope="col"> Mass Out (g)</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for extraction in extractions %}
+        <tr>
+          <td> {{ extraction.coffee_id.coffee_name }}</td>
+          <td> {{ extraction.timestamp }}</td>
+          <td> {{ extraction.extraction_length }} seconds</td>
+          <td> {{ extraction.mass_in }}</td>
+          <td> {{ extraction.mass_out }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+  <span>No data.</span>
+  {% endif %}
+  </div>
+</div>
+{% endblock content %}
