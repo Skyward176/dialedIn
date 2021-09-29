@@ -15,4 +15,5 @@ then
     python3 manage.py migrate
 else
     exec gunicorn dialedIn.wsgi  -b 0.0.0.0:${PORT} --reload --access-logfile -
+    exec python manage.py createsuperuser --username admin --password $PASSWORD
 fi

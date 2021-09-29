@@ -18,5 +18,5 @@ RUN apt-get update &&\
 ADD entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
-RUN python manage.py createsuperuser --username admin --password $PASSWORD
+
 ENTRYPOINT /entrypoint.sh
