@@ -14,5 +14,5 @@ then
     set -e
     python3 manage.py migrate
 else
-    exec gunicorn teleagh.wsgi  -b 0.0.0.0:${PORT} --reload --access-logfile -
+    exec gunicorn dialedIn.wsgi  -b 0.0.0.0:${PORT} --reload --access-logfile -
 fi
